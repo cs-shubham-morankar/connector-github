@@ -1,7 +1,7 @@
 """
 Copyright start
 MIT License
-Copyright (c) 2024 Fortinet Inc
+Copyright (c) 2025 Fortinet Inc
 Copyright end
 """
 
@@ -16,7 +16,7 @@ from collections import namedtuple
 from github import Github
 from github import InputGitTreeElement
 import shutil
-from .constants import CLONE_ACCEPT_HEADER
+from .constants import CLONE_ACCEPT_HEADER, CLONE_URL
 from base64 import b64encode
 from datetime import datetime
 from connectors.core.connector import get_logger, ConnectorError
@@ -35,6 +35,7 @@ FileMetadata = namedtuple('FileMetadata', ['filename',
 class GitHub(object):
     def __init__(self, config):
         self.server_url = config.get('server_url')
+        github_type = config.get('github_account')
         if not self.server_url.startswith('https://'):
             self.server_url = 'https://' + self.server_url
         if not self.server_url.endswith('/'):
@@ -42,7 +43,11 @@ class GitHub(object):
         self.git_username = config.get('username')
         self.password = config.get('password')
         self.verify_ssl = config.get('verify_ssl')
-        self.clone_url = config.get('clone_url')
+        if github_type == "GitHub Cloud":
+            self.clone_url = CLONE_URL
+        elif github_type == "GitHub Enterprise":
+            self.clone_url = f'{self.server_url}_codeload'
+            self.server_url += 'api/v3/'
 
     def make_request(self, endpoint=None, method='GET', data=None, params=None, owner=None, org=None):
         try:
@@ -192,7 +197,7 @@ def list_repository_collaborator(config, params, *args, **kwargs):
     params['affiliation'] = params.get('affiliation', '').lower()
     params['permission'] = params.get('permission', '').lower()
     query_params = {k: v for k, v in params.items() if
-               v is not None and v != '' and v != {} and v != [] and k not in ['owner', 'repo', 'org']}
+                    v is not None and v != '' and v != {} and v != [] and k not in ['owner', 'repo', 'org']}
     return github.make_request(params=query_params, org=params.get('org'), owner=params.get('owner'),
                                endpoint='{0}/collaborators'.format(params.get('repo')))
 
@@ -249,10 +254,11 @@ def fetch_upstream(config, params, *args, **kwargs):
 
 def clone_repository(config, params, *args, **kwargs):
     try:
+        github = GitHub(config)
         env = kwargs.get('env', {})
         url = "https://{0}:{1}@{2}/{3}/{4}/zip/refs/heads/{5}".format(config.get('username'),
                                                                       config.get('password'),
-                                                                      config.get('clone_url', '').split('//')[-1],
+                                                                      github.clone_url.split('//')[-1],
                                                                       params.get('org') if params.get(
                                                                           'repo_type') == "Organization" else params.get(
                                                                           'owner'),
@@ -264,10 +270,10 @@ def clone_repository(config, params, *args, **kwargs):
         zip_file = '/tmp/github-{0}-{1}.zip'.format(params.get('name'), datetime.now().strftime('%Y-%m-%d-%H-%M-%S-%f'))
         response = requests.request("GET", url, headers=headers, data={}, verify=config.get('verify_ssl'))
         if not response.ok:
-            if config.get('clone_url') != 'https://codeload.github.com':
-                raise ConnectorError("Invalid clone URL provided in the connector configuration.")
-            logger.error("Error occurred: {{\"status_code\": {0}, Error: {1}}}".format(response.status_code, response.text if response.text else response.content))
-            raise ConnectorError("Error occurred: {{\"status_code\": {0}, Error: {1}}}".format(response.status_code, response.text if response.text else response.content))
+            logger.error("Error occurred: {{\"status_code\": {0}, Error: {1}}}".format(response.status_code,
+                                                                                       response.text if response.text else response.content))
+            raise ConnectorError("Error occurred: {{\"status_code\": {0}, Error: {1}}}".format(response.status_code,
+                                                                                               response.text if response.text else response.content))
         with open(zip_file, "wb") as zipFile:
             zipFile.write(response.content)
         if params.get('clone_zip') is True:
@@ -351,7 +357,8 @@ def update_clone_repository(config, params, *args, **kwargs):
 
 def push_repository(config, params, *args, **kwargs):
     token = config.get('password')
-    g = Github(token)
+    github = GitHub(config)
+    g = Github(token, base_url=github.server_url.strip("/"), verify=github.verify_ssl)
     if params.get('repo_type') == 'Organization':
         repo = g.get_organization(params.get('org')).get_repo(params.get('name'))
     else:
@@ -648,7 +655,8 @@ def delete_file_from_repository(config, params, *args, **kwargs):
         "branch": params.get('branch') if params.get('branch') else 'main'
     }
     endpoint = '{0}/contents/{1}'.format(params.get('name'), params.get('path'))
-    response = github.make_request(method='DELETE', endpoint=endpoint, org=params.get('org'), owner=params.get('owner'), data=json.dumps(payload))
+    response = github.make_request(method='DELETE', endpoint=endpoint, org=params.get('org'), owner=params.get('owner'),
+                                   data=json.dumps(payload))
     return response
 
 
