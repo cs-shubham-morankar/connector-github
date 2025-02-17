@@ -717,13 +717,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -924,13 +918,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -1180,13 +1168,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -1915,13 +1897,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -2674,13 +2650,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100"
         },
         {
           "title": "Page",
@@ -3175,13 +3145,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -4906,13 +4870,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -5780,13 +5738,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -6576,13 +6528,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -7296,13 +7242,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -7404,13 +7344,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -7573,13 +7507,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
@@ -7805,13 +7733,7 @@
           "value": 30,
           "type": "integer",
           "tooltip": "Specify the number of results, per page, that this operation should return. By default, this value is set as 30; and the maximum value you can specify for this parameter is 100",
-          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100.",
-          "validation": {
-            "pattern": "^[0-9]*$",
-            "patternError": "",
-            "maxlength": 100,
-            "minlength": 1
-          }
+          "description": "(Optional) Specify the number of results, per page, that this operation should return. By default, this value is set to 30; and the maximum value you can specify for this parameter is 100."
         },
         {
           "title": "Page",
